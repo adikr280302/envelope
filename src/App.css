@@ -1,38 +1,233 @@
-.App {
+@font-face {
+  font-family: "DancingScript";
+  src: url("./Assets/DancingScript-Bold.ttf");
+}
+html{
+  height: 100%;
+}
+body{
+  align-content: center;
+  margin: 0 0;
+  height: 100%;
+  justify-content: baseline;
+  margin-top: 0;
+  background-color: rgba(0, 0, 0, 0.16);
+}
+.container-s{
+  display: block;
+  opacity: 1;
+  margin: 20rem auto 3% auto;
+  height: 10rem;
+  width: 15rem;
+  position: relative;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: -1;
+  transition: all 3s ease-in;
+}
+.cover-animation-enter{
+  opacity: 0;
+}
+.cover-animation-enter-active{
+  opacity: 1;
+}
+.cover-animation-exit-active{
+  transform: rotateY(-90deg);
+  opacity: 1;
+}
+.visible{
+  opacity: 1;
+}
+.invisible{
+  transform: rotateY(-90deg);
+}
+.cover{
+  position: absolute;
+  top:0;
+  left: 0;
+  margin: 0 0;
+  height: 10rem;
+  width: 15rem;
+  background-color: gray;
+  z-index: 40;
+  font-family: 'DancingScript','Cursive';
+  text-shadow:1px 1px 0 #fff, 2px 2px 0 #000;
+  font-size: xx-large;  
+}
+.cover p{
+  margin-left:1rem ;
+  margin-top: 1rem;
+}
+.cover div div{
+  margin-left:1rem ;
+  margin-top: 1rem;
+  text-align: center;  
+}
+
+
+.container{
+  display: block;
+  margin: 20rem auto 3% auto;
+  height: 10rem;
+  width: 15rem;
+  position: relative;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: -1;
+  transform: rotateY(-90deg);
+  animation: first-animation,sixth-animation;
+  animation-duration: 3s,3s;
+  animation-timing-function: ease-out,ease-out;
+  animation-delay: 0s,13s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards,forwards;
+  animation-direction: 1,1;
+}
+.behind{
+  position: absolute;
+  top:0;
+  left: 0;
+  margin: 0 0;
+  height: 10rem;
+  width: 15rem;
+  background-color:gray;
+  z-index: -50;
+}
+.lower-half{
+  position: absolute;
+  top:0;
+  left: 0;
+  margin: 0 0;
+  height: 10rem;
+  width: 15rem;
+  background-color:gray;
+  clip-path: polygon(30% 30% ,70% 30% ,100% 100% ,0 100%);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;;
+  
+  z-index: 2;
+
+}
+
+.right-half{
+  position: absolute;
+  top:0;
+  left: 0;
+  margin: 0 0;
+  height: 10rem;
+  width: 15rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background-color: gray;
+  clip-path: polygon(60% 30% ,100% 0% ,100% 100% ,0 100%);
+  z-index: 1;
+  
+}
+.top-half{
+  position: absolute;
+  top:0;
+  left: 0;
+  margin: 0 0;
+  height: 10rem;
+  width: 15rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background-color: blue;
+  clip-path: polygon(0 0 ,100% 0 ,70% 70% ,30% 70%);
+  z-index: 3;
+  
+  transform-origin: top;
+  animation: second-animation,third-animation;
+  animation-duration: 3s,1s;
+  animation-timing-function: ease-out,ease-out;
+  animation-iteration-count: 1,1;
+  animation-delay: 5s,8s;
+  animation-fill-mode: forwards,forwards;
+}
+.card div{
+  padding-top: 2rem;
+}
+.card{
+  position: absolute;
+  top:0;
+  left: 0;
+  color:red; text-shadow:-1px -1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,1px 1px 0 #000;
+  font-size: xx-large;
+  margin: 0 0;
   text-align: center;
+  font-family: 'DancingScript','Cursive';
+  height: 10rem;
+  width: 15rem;
+  background-color: yellow;
+  z-index: 0;
+  animation: fourth-animation,fifth-animation;
+  animation-duration: 3s,3s;
+  animation-timing-function: ease-out;
+  animation-delay: 10s,13s;
+  animation-iteration-count: 1,1;
+  animation-direction: normal,normal;
+  animation-fill-mode: forwards,forwards;
+}
+.left-half{
+  position: absolute;
+  top:0;
+  left: 0;
+  margin: 0 0;
+  height: 10rem;
+  width: 15rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background-color:gray;
+  clip-path: polygon(0 0,40% 30% ,100% 100% ,0 100%);
+  z-index: 1;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+@keyframes first-animation{
+
+  100%{
+    transform: rotateX(0);
+  }
+}
+@keyframes second-animation {
+  100%{
+    transform: rotateX(-180deg);
+  }
+}
+@keyframes third-animation {
+  50%{
+    z-index: 10;
+    transform: translateY(-15rem);
+  }
+  100%{
+    transform: translateY(0);
+    z-index: 10;
+  }
+
+}
+@keyframes third-animation {
+  from{z-index:3;}
+  to{z-index: 0;}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes fourth-animation {
+  0%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-20rem);
+    
+  }
+}
+@keyframes fifth-animation {
+  100%{
+    transform: translateY(0) ;
+    transform: rotateZ(-45deg);
+    z-index: 20;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+@keyframes sixth-animation {
+  100%{
+    transform: rotateZ(45deg);
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
